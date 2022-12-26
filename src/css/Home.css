@@ -1,0 +1,49 @@
+#cardMain {
+    background-color: rgba(232, 223, 223, 0.7);
+}
+
+/*Form {*/
+
+/*    margin: 0;*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    -ms-transform: translateY(-50%);*/
+/*    transform: translateY(-50%);*/
+/*}*/
+
+input {
+    height: 40px;
+    width: 400px;
+}
+
+.login-form-button {
+    background: #ff8c00;
+
+}
+
+.login-form-button:hover {
+    background: #ae5f01;
+}
+
+/*#mainDiv {*/
+/*    height: 700px;*/
+/*    width: 1200px;*/
+/*    background-color: powderblue;*/
+/*    border-radius: 25px;*/
+/*    margin: auto;*/
+/*    position: center;*/
+/*    border: 3px solid black;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*#loginForm {*/
+/*    position: relative;*/
+/*    left: 550px;*/
+/*    background-color: red;*/
+/*    height: 650px;*/
+/*    width: 500px;*/
+/*    border-radius: 25px;*/
+/*}*/
+/*.register-link {*/
+/*    color: midnightblue;*/
+/*}*/
