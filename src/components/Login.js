@@ -28,7 +28,7 @@ import '../css/Home.css';
 const { Title } = Typography;
 const { Option } = Select;
 
-const Home = () => {
+const Login = () => {
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
@@ -36,7 +36,7 @@ const Home = () => {
     return (
         <div id="mainDiv">
         <div id="loginForm">
-        <Card title={<Title level={2} style={{margin:0, fontFamily: 'Raleway'}}>Enter Login Details</Title>} id={'cardMain'} style={{ width: 400, height: 370}}
+        <Card className='card' title={<Title level={2} style={{margin:0, fontFamily: 'Raleway'}}>Enter Login Details</Title>} 
         bordered={false}>
         <Form
             name="normal_login"
@@ -101,4 +101,4 @@ const Home = () => {
         </Card></div></div>
     );
 };
-export default Home;
+export default Login;
