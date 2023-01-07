@@ -1,9 +1,23 @@
 import React from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Card, Typography, Select } from 'antd';
-import '../css/Home.css';
+import { Outlet, Link } from "react-router-dom";
+import { AiOutlineHome } from "react-icons/ai";
 const { Title } = Typography;
 const { Option } = Select;
+
+const layout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span:16,
+  },
+};
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+}
 
 const Login = () => {
     const onFinish = (values) => {
@@ -22,6 +36,7 @@ const Login = () => {
                 remember: true,
             }}
             onFinish={onFinish}
+            onSubmit={handleSubmit}
         >
             <Form.Item
                 name="username"
@@ -59,12 +74,24 @@ const Login = () => {
                 </Select>
             </Form.Item>
 
-            <Form.Item>
+            <Form.Item >
                 <Button type="primary" htmlType="submit" className="login-form-button">
                     Log in
-                </Button>
-                <br /><u><a href="./Register" style={{fontSize:14, color:"black"}}>Register New Account</a></u>
+                </Button><br />
+                <Link
+                    to="/register"
+                    // className="nav-link btn btn-secondary text-light"
+                  >
+                    <u style={{fontSize:14, color:"black", textAlign:"left"}}>Create a New Account</u>
+                </Link><br />
+                <Link
+                    to="/"
+                    // className="nav-link btn btn-secondary text-light"
+                  >
+                    <u style={{fontSize:14, color:"black", textAlign:"left"}}>Return to Home</u>
+                </Link><br />
             </Form.Item>
+
         </Form>
         </Card></div></div>
     );

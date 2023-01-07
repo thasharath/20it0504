@@ -103,3 +103,37 @@ body {
 .container.right-panel-active .container--signin {
   transform: translateX(100%);
 }
+
+
+.cardRegister {
+  width: 450px;
+  height: 770px;
+  background-color: rgba(232, 223, 223, 0.7)
+}
+
+
+
+.card {
+  width: 450px;
+  height: 390px;
+  background-color: rgba(232, 223, 223, 0.7)
+}
+
+input {
+  height: 40px;
+  width: 400px;
+
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 15px;
+  font-size: 60px;
+  background-color: rgba(250, 235, 215, 0.528);
+  border-radius: 20px;
+  margin: 20px;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useState } from "react";
 import { Button, Form, Input, InputNumber, Radio, Card, Typography } from 'antd';
-import '../css/Register.css';
+import { Outlet, Link } from "react-router-dom";
+import axios from 'axios';
 
 // import '../css/Home.css';
 
@@ -28,34 +30,57 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
+
+
+
+
+
 const App = () => {
   const onFinish = (values) => {
     console.log(values);
   };
+  
+  const [inputs, setInputs] = useState({})
+
+  const handleChange = (event)  => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axios.post("http://localhost/api/user/save", inputs)
+
+    console.log(inputs);
+  }
+
+
   return (
-    <Card className='card' title={<Title level={2} style={{margin:0, fontFamily: 'Raleway'}}>Enter Login Details</Title>} 
+    <Card className='cardRegister' title={<Title level={2} style={{margin:3, fontFamily: 'Raleway'}}>Enter Registration Details</Title>} 
         bordered={false}>
-    <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+    <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} onSubmit={handleSubmit}>
       
       <Form.Item
         name="fName"
         label="First Name"
       >
-        <Input />
+        <Input onChange={handleChange}/>
       </Form.Item>
 
       <Form.Item
         name="lname"
         label="Last Name"
       >
-        <Input />
+        <Input onChange={handleChange}/>
       </Form.Item>
 
       <Form.Item
         name="sId"
         label="Student ID"
       >
-        <Input />
+        <Input onChange={handleChange}/>
       </Form.Item>
 
       <Form.Item
@@ -67,7 +92,7 @@ const App = () => {
           },
         ]}
       >
-        <Input />
+        <Input onChange={handleChange}/>
       </Form.Item>
 
       <Form.Item
@@ -79,17 +104,18 @@ const App = () => {
           },
         ]}
       >
-        <Input />
+        <Input onChange={handleChange}/>
       </Form.Item>
 
       <Form.Item
         name="phone"
         label="Phone Number"
       >
-        <Input/>
+        <Input onChange={handleChange}/>
       </Form.Item>
       
-      <Form.Item 
+      <Form.Item
+      onChange={handleChange}
        label="Role" 
        rules={[
           {
@@ -97,7 +123,8 @@ const App = () => {
           },
         ]}
       >
-        <Radio.Group>
+        <Radio.Group 
+        onChange={handleChange} >
             <Radio value="teacher"> Teacher </Radio>
             <Radio value="student"> Student </Radio>
           </Radio.Group>
@@ -114,7 +141,7 @@ const App = () => {
         ]}
         hasFeedback
         >
-        <Input.Password />
+        <Input.Password onChange={handleChange}/>
       </Form.Item>
 
       <Form.Item
@@ -143,12 +170,27 @@ const App = () => {
       <Form.Item
         wrapperCol={{
           ...layout.wrapperCol,
-          offset: 8,
+          offset: 4,
         }}
       >
         <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
+          Register
+        </Button><br />
+        
+        <Link
+          to="/login"
+                    // className="nav-link btn btn-secondary text-light"
+          >
+          <u style={{fontSize:14, color:"black", textAlign:"left"}}>Already Have an Account?</u>
+        </Link><br />
+
+        <Link
+          to="/"
+                    // className="nav-link btn btn-secondary text-light"
+          >
+          <u style={{fontSize:14, color:"black", textAlign:"left"}}>Return to Home</u>
+        </Link>
+
       </Form.Item>
     </Form>
     </Card>
