@@ -1,26 +1,3 @@
-// import { Checkbox, Button, Form, Input } from 'antd';
-// import React from 'react';
-//
-//
-// export default App;
-//     // return (
-//     //     <form>
-//
-//     //         <div>
-//     //             <label for="email">Email: </label>
-//     //             <input type="email" placeholder="name@domain.com" id="email" name="email"></input>
-//     //         </div>
-//
-//     //         <div>
-//     //             <label for="password">Password: </label>
-//     //             <input type="password" id="password" name="password"></input>
-//     //         </div>
-//
-//
-//     //     </form>
-//
-//     // )
-
 import React from 'react';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Card, Typography, Select } from 'antd';
@@ -81,15 +58,6 @@ const Login = () => {
                     <Option value="female">Student</Option>
                 </Select>
             </Form.Item>
-            {/*<Form.Item>*/}
-            {/*    <Form.Item name="remember" valuePropName="checked" noStyle>*/}
-            {/*        <Checkbox>Remember me</Checkbox>*/}
-            {/*    </Form.Item>*/}
-
-            {/*    <a className="login-form-forgot" href="">*/}
-            {/*        Forgot password*/}
-            {/*    </a>*/}
-            {/*</Form.Item>*/}
 
             <Form.Item>
                 <Button type="primary" htmlType="submit" className="login-form-button">
