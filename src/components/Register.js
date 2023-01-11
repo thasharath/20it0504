@@ -45,7 +45,11 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post("http://localhost/api/user/save", inputs);
+    axios
+      .post("http://localhost/api/index.php", inputs)
+      .then((response) =>
+        console.log(response.data).catch((error) => console.log(error))
+      );
 
     console.log(inputs);
   };
