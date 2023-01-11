@@ -1,25 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NavBar from "./NavBar";
 
 const Error = () => (
-     <>
-        <h1 style={{fontSize:"77px",
-        backgroundColor:"rgba(168, 104, 104, 0.351)",
-        borderRadius:"15px",
-        padding:"20px"}}>Error!! Page Not Found</h1><br></br>
+  <>
+    <NavBar></NavBar>
+    <div className="errorPage">
+      <h1
+        className="text"
+        style={{
+          fontSize: "77px",
+          color: "white",
+        }}
+      >
+        Error!! Page Not Found
+      </h1>
+      <br></br>
 
-        <Link
-            to="/"
-                    // className="nav-link btn btn-secondary text-light"
+      <Link style={{ textDecoration: "none" }} to="/">
+        <h3
+          className="text"
+          style={{
+            fontSize: "55px",
+            textAlign: "center",
+            color: "white",
+            borderRadius: "15px",
+            padding: "20px",
+          }}
         >
-            <h3 style={{fontSize:"55px",
-            textAlign:"center",
-            color:"black",
-            backgroundColor:"rgba(255, 255, 255, 0.351)",
-            borderRadius:"15px",
-            padding:"20px"}}>Return to Home</h3>
-        </Link>
-    </>)
-
+          Return to Home
+        </h3>
+      </Link>
+    </div>
+  </>
+);
 
 export default Error;

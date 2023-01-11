@@ -1,20 +1,15 @@
 // import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Register from './components/Register';
+import Register from "./components/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from './components/Nav'
-
-
-
-
+import Nav from "./components/Nav";
 
 function App() {
-  return (
-
-    <>
-    <Nav></Nav>
+    return (
+        <>
+            <Nav></Nav>
             {/* <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -23,8 +18,7 @@ function App() {
                 </Routes>
             </BrowserRouter> */}
         </>
-
-  );
+    );
 }
 
 export default App;

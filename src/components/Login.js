@@ -1,9 +1,11 @@
-import React from 'react';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Card, Typography, Select } from 'antd';
-import { Outlet, Link } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
+import React from "react";
+import NavBar from "./NavBar";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { Button, Form, Input, Card, Typography, Select } from "antd";
+import { Link } from "react-router-dom";
+
 const { Title } = Typography;
+
 const { Option } = Select;
 
 const layout = {
@@ -11,89 +13,122 @@ const layout = {
     span: 8,
   },
   wrapperCol: {
-    span:16,
+    span: 16,
   },
 };
 
 const handleSubmit = (event) => {
-    event.preventDefault();
-}
+  event.preventDefault();
+};
 
 const Login = () => {
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
+  const onFinish = (values) => {
+    console.log("Received values of form: ", values);
+  };
 
-    return (
-        <div id="mainDiv">
-        <div id="loginForm">
-        <Card className='card' title={<Title level={2} style={{margin:0, fontFamily: 'Raleway'}}>Enter Login Details</Title>} 
-        bordered={false}>
-        <Form
+  return (
+    <div id="mainDiv">
+      <NavBar></NavBar>
+      <div id="loginForm">
+        <Card
+          className="card"
+          title={
+            <Title
+              level={2}
+              style={{ margin: 0, fontFamily: "Raleway", textAlign: "center" }}
+            >
+              Enter Login Details
+            </Title>
+          }
+          bordered={false}
+        >
+          <Form
             name="normal_login"
             className="login-form"
             initialValues={{
-                remember: true,
+              remember: true,
             }}
             onFinish={onFinish}
             onSubmit={handleSubmit}
-        >
+          >
             <Form.Item
-                name="username"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input your NIC number!',
-                    },
-                ]}
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your NIC number!",
+                },
+              ]}
             >
-                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="NIC Number" />
+              <Input
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="NIC Number"
+              />
             </Form.Item>
             <Form.Item
-                name="password"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input your Password!',
-                    },
-                ]}
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Password!",
+                },
+              ]}
             >
-                <Input
-                    prefix={<LockOutlined className="site-form-item-icon" />}
-                    type="password"
-                    placeholder="Password"
-                />
+              <Input
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Password"
+              />
             </Form.Item>
-            <Form.Item>
-                <Select
-                    placeholder="Select Your Role"
-                    allowClear
+            <Form.Item name="role">
+              <Select placeholder="Select Your Role" allowClear>
+                <Option value="teacher">Teacher</Option>
+                <Option value="student">Student</Option>
+              </Select>
+            </Form.Item>
+
+            <Form.Item
+              style={{ textAlign: "center" }}
+              wrapperCol={{
+                ...layout.wrapperCol,
+                offset: 4,
+              }}
+            >
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="login-form-button"
+              >
+                Log in
+              </Button>
+              <br />
+              <Link to="/register">
+                <u
+                  style={{
+                    fontSize: 15,
+                    color: "black",
+                  }}
                 >
-                    <Option value="male">Teacher</Option>
-                    <Option value="female">Student</Option>
-                </Select>
+                  Create a New Account
+                </u>
+              </Link>
+              <br />
+              <Link to="/">
+                <u
+                  style={{
+                    fontSize: 15,
+                    color: "black",
+                  }}
+                >
+                  Return to Home
+                </u>
+              </Link>
+              <br />
             </Form.Item>
-
-            <Form.Item >
-                <Button type="primary" htmlType="submit" className="login-form-button">
-                    Log in
-                </Button><br />
-                <Link
-                    to="/register"
-                    // className="nav-link btn btn-secondary text-light"
-                  >
-                    <u style={{fontSize:14, color:"black", textAlign:"left"}}>Create a New Account</u>
-                </Link><br />
-                <Link
-                    to="/"
-                    // className="nav-link btn btn-secondary text-light"
-                  >
-                    <u style={{fontSize:14, color:"black", textAlign:"left"}}>Return to Home</u>
-                </Link><br />
-            </Form.Item>
-
-        </Form>
-        </Card></div></div>
-    );
+          </Form>
+        </Card>
+      </div>
+    </div>
+  );
 };
 export default Login;
