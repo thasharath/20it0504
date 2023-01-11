@@ -34,7 +34,7 @@ const Register = () => {
     console.log(values);
   };
 
-  const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState([]);
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -47,11 +47,17 @@ const Register = () => {
 
     axios
       .post("http://localhost/api/index.php", inputs)
-      .then((response) =>
-        console.log(response.data).catch((error) => console.log(error))
-      );
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // .then((response) =>
+    //   console.log(response.data).catch((error) => console.log(error))
+    // );
 
-    console.log(inputs);
+    // console.log(inputs);
   };
 
   return (
@@ -75,7 +81,7 @@ const Register = () => {
           name="nest-messages"
           onFinish={onFinish}
           validateMessages={validateMessages}
-          onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
         >
           {/* Input first name */}
           <Form.Item name="firstName" label="First Name">
@@ -190,7 +196,12 @@ const Register = () => {
               offset: 4,
             }}
           >
-            <Button name="submitBtn" type="primary" htmlType="submit">
+            <Button
+              name="submitBtn"
+              type="primary"
+              htmlType="submit"
+              onClick={handleSubmit}
+            >
               Register
             </Button>
             <br />
