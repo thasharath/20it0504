@@ -1,10 +1,10 @@
 import React from "react";
 import NavBar from "./NavBar";
-// import NavBarHome from "./NavBarHome";
+import NavBarHome from "./NavBarHome";
 
 const Home = () => (
   <>
-    <NavBar></NavBar>
+    <NavBarHome></NavBarHome>
     <h1 className="text" style={{ fontSize: "52px", color: "white" }}>
       Welcome to Student Management System
     </h1>
