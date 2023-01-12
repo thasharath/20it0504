@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2023 at 07:18 PM
+-- Generation Time: Jan 12, 2023 at 06:12 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -22,6 +22,24 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `20IT0504` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `20IT0504`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `studentMarks`
+--
+
+DROP TABLE IF EXISTS `studentMarks`;
+CREATE TABLE `studentMarks` (
+  `studentId` varchar(10) NOT NULL,
+  `maths` int(4) NOT NULL,
+  `science` int(4) NOT NULL,
+  `tamil` int(4) NOT NULL,
+  `english` int(4) NOT NULL,
+  `history` int(4) NOT NULL,
+  `average` decimal(5,0) NOT NULL,
+  `grade` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -48,10 +66,18 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `studentMarks`
+--
+ALTER TABLE `studentMarks`
+  ADD PRIMARY KEY (`studentId`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`userID`);
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `nic` (`nic`),
+  ADD UNIQUE KEY `studentId` (`studentId`);
 
 --
 -- AUTO_INCREMENT for dumped tables

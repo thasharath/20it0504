@@ -85,16 +85,24 @@ const Register = () => {
     //   return false;
     // }
 
-    alert(document.registration.firstName.value);
+    // alert(document.registration.firstName.value);
 
     axios
-      .post("http://localhost/api/index.php", inputs)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
+      .post("http://localhost/api/register.php", inputs)
+      // .then((response) => {
+      //   console.log(response.data);
+      // })
+      .then(function (response) {
+        if (response.data === "success") {
+          window.alert("Account Succesfully Created");
+          window.location = "http://localhost:3000/login";
+        } else {
+          window.alert("Account Creation Failed!!");
+        }
       });
+    // .catch((error) => {
+    //   console.log(error);
+    // });
     // .then((response) =>
     //   console.log(response.data).catch((error) => console.log(error))
     // );
